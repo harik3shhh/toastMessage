@@ -20,16 +20,17 @@ li, a, button{
     text-decoration: none;
 }
 
-header{
-
-    width: 100%;
-    /* height: 60px; */
-    /* position: ; */
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px 2%;
-    background-color: rgba(23, 6, 6, 0.998);
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(23, 6, 6, 0.998);
+  padding: 10px 2%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000; /* Ensure a high z-index */
 }
 
 .logo{
