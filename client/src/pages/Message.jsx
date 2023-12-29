@@ -35,7 +35,7 @@ const handleSubmit = async(e)=>{
     console.log(user);
 
     try {
-        const response = await fetch("https://toast-message-eight.vercel.app/", {
+        const response = await fetch("https://toast-message-seven.vercel.app/api/form/message", {
             method: "POST",
             headers:{
                 "Content-Type":"application/json",
