@@ -3,19 +3,20 @@ const express = require('express');
 const messageRoute = require("./router/message-route");
 const errorMiddleware = require("./middlewares/error-middleware");
 const cors =  require("cors");
+
 require("./db/conn");
 const app = express();
+
+
 
 
 const PORT = process.env.PORT;
 
 const corsOptions={
-    origin: ["https://toast-message-b.vercel.app/"],
-    methods: "GET, POST, PUT, HEAD, PATCH , DELETE, OPTIONS",
+    origin: "http://localhost:5173",
+    methods: "GET, POST, PUT, HEAD",
     credentials: true,
 }
-
-
 
 //cors
 app.use(cors(corsOptions));
