@@ -13,7 +13,8 @@ const app = express();
 const PORT = process.env.PORT;
 
 const corsOptions={
-    origin: "https://toast-message-b.vercel.app/",
+    //origin: "https://toast-message-b.vercel.app/",
+    origin: "*";
     methods: "GET, POST, PUT, HEAD",
     credentials: true,
 }
