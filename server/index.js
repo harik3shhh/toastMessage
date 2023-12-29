@@ -7,7 +7,7 @@ require("./db/conn");
 const app = express();
 
 
-const PORT = process.env.PORT;
+const PORT = 8000;
 
 const corsOptions={
     origin: "http://localhost:5173",
