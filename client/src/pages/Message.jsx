@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { toast } from "react-toastify";
+import Loading from "../components/Loading";
 
 
 // import { ChevronDownIcon } from '@heroicons/react/20/solid'
@@ -8,6 +9,7 @@ import { toast } from "react-toastify";
 
 
 export const Message= ()=>{
+     const [isSubmitting, setIsSubmitting] = useState(false);
 
 const [user, setUser] = useState({
     username: "",
@@ -34,6 +36,8 @@ const handleSubmit = async(e)=>{
     e.preventDefault();
     console.log(user);
 
+     setIsSubmitting(true);
+
     try {
         const response = await fetch("https://toast-message-seven.vercel.app/api/form/message", {
             method: "POST",
@@ -42,6 +46,8 @@ const handleSubmit = async(e)=>{
             },
             body: JSON.stringify(user),
         });
+
+        await new Promise(resolve => setTimeout(resolve, 2000));
     
         if(response.ok){
             setUser({username: "", lastname: "", email: "", message: "",});
@@ -50,8 +56,11 @@ const handleSubmit = async(e)=>{
             toast.error("Failed to send message!!!");
 
         }
+
+        setIsSubmitting(false);
     } catch (error) {
         console.log(error);
+        setIsSubmitting(false);
     }
 };
 
@@ -147,12 +156,16 @@ const handleSubmit = async(e)=>{
           
         </div>
         <div className="mt-10">
+          {isSubmitting ? (
+          <Loading />
+          ):(
           <button
             type="submit"
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Send Message
           </button>
+         ) }
         </div>
       </form>
     </div>
