@@ -14,7 +14,7 @@ const PORT = process.env.PORT;
 
 const corsOptions={
     //origin: "https://toast-message-b.vercel.app/",
-    origin: "*";
+    origin: "*",
     methods: "GET, POST, PUT, HEAD",
     credentials: true,
 }
