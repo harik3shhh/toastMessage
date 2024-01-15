@@ -47,7 +47,7 @@ const handleSubmit = async(e)=>{
             body: JSON.stringify(user),
         });
 
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        //await new Promise(resolve => setTimeout(resolve, 2000));
     
         if(response.ok){
             setUser({username: "", lastname: "", email: "", message: "",});
